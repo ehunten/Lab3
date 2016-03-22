@@ -20,8 +20,7 @@ void initPWM() {
     T2CONbits.TCKPS = PRESC1;   //Set prescalar
     T2CONbits.TCS = 0;          //Set Oscillator
     T2CONbits.ON = 1;          //turn timer on
-    IEC0bits.T2IE = 1;         //enable interrupt
-    IPC2bits.T2IP = 7;          //configure interrupt priority
+
     
 //OCM2
     OC2CONbits.ON = 0;      //turn off
