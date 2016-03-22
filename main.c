@@ -38,16 +38,25 @@ int main(void)
     while (1) {
         
         
+        if (IFS0bits.AD1IF == 1) {
+            val = ADC1BUF0;
+            //OC1RS = ADCBUF0; //for part 2
+            //val is between 0 and 1023
+            //convert it to between 0 and 3.3V
+            val = val/310; 
+            readAdc(val);
+        }
+        
+        
+        
         
         
     }
-    
-    
+     
 }
 
 
 
 void __ISR(_ADC_VECTOR, IPL7AUTO) _ADCInterrupt(void){
     IFS0bits.AD1IF = 0;
-    val = ADC1BUF0;
 }

@@ -13,6 +13,8 @@
 void initADC(){
     
     ANSELBbits.ANSB0 = 0; 
+   
+    
     AD1CON1bits.FORM = 0; // 16 unsigned integer
     AD1CON1bits.SSRC = 7; // Auto-convert mode
     AD1CON1bits.ASAM = 1; // Auto-sampling
@@ -34,7 +36,10 @@ void initADC(){
 }
 
 //read voltage off the pot pin so we can print it on the LCD
-int readAdc() {
+int readAdc(int val) {
+    char str[] = "default"
     
+    sprintf(str, "%d", val);
+    printStringLCD(str);
     
 }
