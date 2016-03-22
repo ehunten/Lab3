@@ -4,3 +4,8 @@
  *
  * Created 3/10/16
  */
+
+
+void initAdc();
+
+int readAdc();

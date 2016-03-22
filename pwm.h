@@ -4,3 +4,5 @@
  *
  * Created 3/10/16
  */
+
+void initPWM();

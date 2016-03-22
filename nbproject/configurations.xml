@@ -9,6 +9,7 @@
       <itemPath>timer.h</itemPath>
       <itemPath>adc.h</itemPath>
       <itemPath>pwm.h</itemPath>
+      <itemPath>interrupt.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,6 +23,7 @@
       <itemPath>timer.c</itemPath>
       <itemPath>adc.c</itemPath>
       <itemPath>pwm.c</itemPath>
+      <itemPath>interrupt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
