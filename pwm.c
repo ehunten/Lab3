@@ -34,4 +34,3 @@ void initPWM() {
     OC1CONbits.OCM = 6;
     OC1CONbits.ON = 1;
 }
-
