@@ -18,7 +18,7 @@
 
 
 typedef enum stateTypeEnum{
-    init, state
+    init
 } stateType;
 
 volatile stateType state = init;
@@ -30,10 +30,16 @@ int main(void)
 {
     SYSTEMConfigPerformance(40000000);
     enableInterrupts();
+    initTimer1();
+   // initTimer2();
     initADC();
-    TRISDbits.TRISD0 = 0; //RD0 - can use LED to see if stuff is working
-   
+    initLCD();
     
+    TRISDbits.TRISD0 = 0; //RD0 - can use LED to see if stuff is working
+    
+    clearLCD();
+    
+    printStringLCD("Heyooo");
     
     while (1) {
         
