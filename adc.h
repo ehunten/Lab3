@@ -8,4 +8,4 @@
 
 void initAdc();
 
-int readAdc(int val);
+int readAdc(float val);
