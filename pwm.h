@@ -6,3 +6,4 @@
  */
 
 void initPWM();
+void initHbridge();

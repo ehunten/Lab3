@@ -19,7 +19,7 @@ void initADC(){
     AD1CON1bits.FORM = 0; // 16 unsigned integer
     AD1CON1bits.SSRC = 7; // Auto-convert mode
     AD1CON1bits.ASAM = 1; // Auto-sampling
-    AD1CON2bits.VCFG = 0; // Use board refernece voltages
+    AD1CON2bits.VCFG = 0; // Use board reference voltages
     AD1CON2bits.CSCNA = 0; // Disable scanning
     AD1CON2bits.SMPI = 15; // 15 burritos
     AD1CON2bits.ALTS = 0; // Only Mux A
@@ -27,20 +27,18 @@ void initADC(){
     AD1CON3bits.SAMC = 2; // 2 Tad per sample
     AD1CON3bits.ADCS = 0xFF; // 512 times the PBCLK
     AD1CHSbits.CH0NA = 0; // Use Vref- as negative reference
-    AD1CHSbits.CH0SA = 1; // Scan AN0 at least WAS 0
+    AD1CHSbits.CH0SA = 0; // Scan AN0 at least
     IFS0bits.AD1IF = 0; // Put down ADC flag
-    //IPC5bits.AD1IP = 7;
-    //IEC0bits.AD1IE = 1;
     
     AD1CON1bits.ADON = 1; // turn on the ADC
 
 }
 
 //read voltage off the pot pin so we can print it on the LCD
-int readAdc(int val) {
+int readAdc(float val) {
     char str[] = "default";
     
-    sprintf(str, "%d", val);
+    sprintf(str, "%.2f", val);
     moveCursorLCD(1);
     printStringLCD(str);
     moveCursorLCD(0);

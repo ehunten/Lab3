@@ -23,7 +23,7 @@ typedef enum stateTypeEnum{
 
 volatile stateType state = init;
 
-volatile unsigned int val = 0;
+volatile float val = 0;
 
 
 int main(void)
@@ -35,7 +35,11 @@ int main(void)
     
     initLCD();
     initADC();
+<<<<<<< HEAD
     initLCD();
+=======
+    initPWM();
+>>>>>>> origin/dev
     TRISDbits.TRISD0 = 0; //RD0 - can use LED to see if stuff is working
 
     clearLCD();
@@ -53,9 +57,11 @@ int main(void)
             //OC1RS = ADCBUF0; //for part 2
             //val is between 0 and 1023
             //convert it to between 0 and 3.3V
-            val = val/310; 
+            val = val/310.0; 
             readAdc(val);
         }
+        
+        
         
         
         
