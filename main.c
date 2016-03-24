@@ -35,10 +35,14 @@ int main(void)
     
 
     initADC();
+<<<<<<< HEAD
 
     initLCD();
 
     //initHbridge();
+=======
+    initHbridge();
+>>>>>>> origin/dev
     initPWM();
 
     TRISDbits.TRISD0 = 0; //RD0 - can use LED to see if stuff is working
@@ -51,7 +55,7 @@ int main(void)
 
     
     while (1) {
-        
+
         
         if (IFS0bits.AD1IF == 1) {
             IFS0bits.AD1IF = 0;
@@ -61,8 +65,17 @@ int main(void)
             readAdc(val);
         }
         
+<<<<<<< HEAD
         TestingDutyCycle();
 
+=======
+        //forward();
+        backward();
+        
+        
+        
+    }
+>>>>>>> origin/dev
      
     }
 }

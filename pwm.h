@@ -7,6 +7,11 @@
 
 void initPWM();
 void initHbridge();
+<<<<<<< HEAD
 void forward(int Duty);
 void backward(int Duty);
 void TestingDutyCycle();
+=======
+void forward();
+void backward();
+>>>>>>> origin/dev
