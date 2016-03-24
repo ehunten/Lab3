@@ -34,7 +34,7 @@ int main(void)
     
     initLCD();
     initADC();
-    //initHbridge();
+    initHbridge();
     initPWM();
     TRISDbits.TRISD0 = 0; //RD0 - can use LED to see if stuff is working
     
@@ -42,7 +42,7 @@ int main(void)
 
     
     while (1) {
-        
+
         
         if (IFS0bits.AD1IF == 1) {
             IFS0bits.AD1IF = 0;
@@ -53,6 +53,9 @@ int main(void)
         }
         
         forward();
+        //backward();
+        
+        
         
     }
      
