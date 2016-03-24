@@ -102,19 +102,6 @@ void backward(int Duty) {
 void TestingDutyCycle(){
        unsigned int i = 0;
 
-        forward(100);
-        
-        for(i=0;i<1000;i++)
-        {
-            delayUs(143);
-        }    
-        
-        forward(250);
-        
-        for(i=0;i<1000;i++)
-        {
-            delayUs(143);
-        }    
         
         forward(500);
         
@@ -132,20 +119,6 @@ void TestingDutyCycle(){
         
         forward(1000);
         
-        for(i=0;i<1000;i++)
-        {
-            delayUs(143);
-        }
-        
-        backward(100);
-               
-        for(i=0;i<1000;i++)
-        {
-            delayUs(143);
-        }
-               
-        backward(250);
-               
         for(i=0;i<1000;i++)
         {
             delayUs(143);
