@@ -32,7 +32,7 @@ void initTimer1(){
 void initTimer2(){
     IFS0bits.T2IF = CLEAR;          // Put the flag down
     TMR2 = CLEAR;                   //Clear TMR2
-    PR2 = 9;                        //Set PRvalue
+    PR2 = 1000;                        //Set PRvalue
     T2CONbits.TCKPS = PRESC1;       //Set prescalar
     T2CONbits.TCS = CLEAR;          //Set Oscillator
   //  IEC0bits.T2IE = ENABLE;         //enable interrupt
