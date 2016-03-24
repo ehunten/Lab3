@@ -19,30 +19,36 @@ void initPWM() {
     T2CONbits.TCS = 0;          //Set Oscillator
     T2CONbits.ON = 1;          //turn timer on
 
-    RPC2Rbits.RPC2R = 0b1011;
-    RPB14Rbits.RPB14R = 0;
-    RPD1Rbits.RPD1R = 0b1011;   //map OC2 to RD1 1100
-    RPD5Rbits.RPD5R = 0;   //map OC2 to RD5 (ground right now)    
+    RPF1Rbits.RPF1R = 0b1011;
+    RPB10Rbits.RPB10R = 0;
+    
+    RPD1Rbits.RPD1R = 0b1100;   //map OC1 to RD1 1100
+    RPD5Rbits.RPD5R = 0;   //map OC1 to RD5 (ground right now)    
    
-    //OCM2
-
-    OC2CONbits.ON = 0;      //turn off
-    OC2CONbits.OCTSEL = 0;  //using timer 2
-    OC2R = 0;
-    OC2RS = 0;              //dual compare mode
-    OC2CONbits.OCM = 6;     //PWM mode no fault pin
-    OC2CONbits.ON = 0;      //turn it on
-
-    
-    
+//OCM2
+    OC3CONbits.ON = 0;      //turn off
+    OC3CONbits.OCTSEL = 0;  //using timer 2
+    OC3R = 0;
+    OC3RS = 0;              //dual compare mode
+    OC3CONbits.OCM = 6;     //PWM mode no fault pin
+  
 //OCM1
     OC1CONbits.ON = 0;
     OC1CONbits.OCTSEL = 0;
     OC1R = 0;
     OC1RS = 0;
     OC1CONbits.OCM = 6;
-    OC1CONbits.ON = 0;
+   
+    ///////////////////
+
+    OC1RS = 1000;
+
+    OC1CONbits.ON = 1;
     
+
+    OC3RS = 1000;              //dual compare mode
+
+    OC3CONbits.ON = 1;      //turn it on
     
 }
 
@@ -61,34 +67,19 @@ void initHbridge() {
 
 void forward(){
     
-    RPD1Rbits.RPD1R = 0b1011;   //map OC1 to RD1 1100
-    RPD5Rbits.RPD5R = 0;   //map OC1 to RD5 (ground right now)
-    
-    RPC2Rbits.RPC2R = 0b1011;
-    RPB14Rbits.RPB14R = 0;
-    OC1CONbits.ON = 0;
-    OC1CONbits.OCTSEL = 0;
-    OC1R = 0;
-    OC1RS = 500;
-    OC1CONbits.OCM = 6;
-    OC1CONbits.ON = 1;
-    
-}
-
-void backward() {
-        //OCM2
     RPD1Rbits.RPD1R = 0;   //map OC1 to RD1 1100
     RPD5Rbits.RPD5R = 0b1100;   //map OC1 to RD5 (ground right now)
     
-    RPC2Rbits.RPC2R = 0;
-    RPB14Rbits.RPB14R = 0b1100;
-    
-    OC2CONbits.ON = 0;      //turn off
-    OC2CONbits.OCTSEL = 0;  //using timer 2
-    OC2R = 0;
-    OC2RS = 700;              //dual compare mode
-    OC2CONbits.OCM = 6;     //PWM mode no fault pin
+    RPF1Rbits.RPF1R = 0b1011;
+    RPB10Rbits.RPB10R = 0;
+       
+}
 
-    OC2CONbits.ON = 1;      //turn it on
+void backward() {
+    RPD1Rbits.RPD1R = 0b1100;   //map OC1 to RD1 1100
+    RPD5Rbits.RPD5R = 0;   //map OC1 to RD5 (ground right now)
+    
+    RPF1Rbits.RPF1R = 0;
+    RPB10Rbits.RPB10R = 0b1011;
     
 }

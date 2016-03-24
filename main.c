@@ -52,8 +52,8 @@ int main(void)
             readAdc(val);
         }
         
-        forward();
-        //backward();
+        //forward();
+        backward();
         
         
         
