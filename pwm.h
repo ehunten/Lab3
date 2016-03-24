@@ -7,3 +7,6 @@
 
 void initPWM();
 void initHbridge();
+void forward(int Duty);
+void backward(int Duty);
+void TestingDutyCycle();

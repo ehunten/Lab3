@@ -42,19 +42,13 @@ void initPWM() {
     OC1RS = 0;
     OC1CONbits.OCM = 6;
     OC1CONbits.ON = 1;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
     //OC1CONSET = 0x8000;
-=======
->>>>>>> origin/dev
+
     
     
 }
->>>>>>> origin/dev
 
-<<<<<<< HEAD
 /*
  Enable motor 1: RG13
  Output 1 motor 1: RG0
@@ -65,12 +59,7 @@ void initPWM() {
  Output 2 motor 2: RC13
  
  */
-<<<<<<< HEAD
-}
-=======
-=======
 
->>>>>>> origin/dev
 
 void initHbridge() {
     
@@ -82,34 +71,105 @@ void initHbridge() {
     LATDbits.LATD12 = 1;
     
 }
-<<<<<<< HEAD
->>>>>>> origin/dev
-=======
 
-void forward(){
+void forward(int Duty){
     
     RPD1Rbits.RPD1R = 0b1100;   //map OC1 to RD1 1100
     RPD5Rbits.RPD5R = 0b1100;   //map OC1 to RD5 (ground right now)
     OC1CONbits.ON = 0;
     OC1CONbits.OCTSEL = 0;
     OC1R = 0;
-    OC1RS = 1500;
+    OC1RS = Duty;
     OC1CONbits.OCM = 6;
     OC1CONbits.ON = 1;
     
 }
 
-void backward() {
+void backward(int Duty) {
         //OCM2
     RPD1Rbits.RPD1R = 0b1011;   //map OC1 to RD1 1100
     RPD5Rbits.RPD5R = 0b1011;   //map OC1 to RD5 (ground right now)
     OC2CONbits.ON = 0;      //turn off
     OC2CONbits.OCTSEL = 0;  //using timer 2
     OC2R = 0;
-    OC2RS = 5000;              //dual compare mode
+    OC2RS = Duty;              //dual compare mode
     OC2CONbits.OCM = 6;     //PWM mode no fault pin
 
     OC2CONbits.ON = 1;      //turn it on
     
 }
->>>>>>> origin/dev
+
+void TestingDutyCycle(){
+       unsigned int i = 0;
+
+        forward(100);
+        
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }    
+        
+        forward(250);
+        
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }    
+        
+        forward(500);
+        
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }   
+        
+        forward(750);
+        
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+        
+        forward(1000);
+        
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+        
+        backward(100);
+               
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+               
+        backward(250);
+               
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+                
+        backward(500);
+               
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+        
+        backward(750);
+               
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+                
+        backward(1000);
+               
+        for(i=0;i<1000;i++)
+        {
+            delayUs(143);
+        }
+}
+

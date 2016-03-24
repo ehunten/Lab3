@@ -45,7 +45,7 @@ void initTimer2(){
 void delayUs(unsigned int delay){
     //Create a delay using timer 2 for "delay" microseconds.      
      TMR1 = 0;
-     PR1 = delay*PRVAL;
+     PR1 = delay*9;
      IFS0bits.T1IF = 0;
      T1CONbits.ON = 1;
      

@@ -26,29 +26,28 @@ volatile stateType state = init;
 volatile float val = 0;
 
 
+
 int main(void)
 {
     SYSTEMConfigPerformance(40000000);
     enableInterrupts();
     initTimer1();
     
-    initLCD();
+
     initADC();
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     initLCD();
-=======
-=======
+
     //initHbridge();
->>>>>>> origin/dev
     initPWM();
->>>>>>> origin/dev
+
     TRISDbits.TRISD0 = 0; //RD0 - can use LED to see if stuff is working
 
     clearLCD();
 
     
     clearLCD();
+
 
     
     while (1) {
@@ -62,11 +61,12 @@ int main(void)
             readAdc(val);
         }
         
-        forward();
-        
-    }
+        TestingDutyCycle();
+
      
+    }
 }
+
 
 
 
