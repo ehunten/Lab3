@@ -33,9 +33,7 @@ void initPWM() {
     OC1RS = 5;
     OC1CONbits.OCM = 6;
     OC1CONbits.ON = 1;
-}
-<<<<<<< HEAD
-=======
+
 
 /*
  Enable motor 1: RG13
@@ -47,4 +45,4 @@ void initPWM() {
  Output 2 motor 2: RC13
  
  */
->>>>>>> origin/master
+}
