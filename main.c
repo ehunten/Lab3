@@ -75,12 +75,12 @@ int main(void)
         else if (ADC1BUF0 < 450) {
             //TURN LEFT
             OC1RS = 700;
-            OC3RS = 0;
+            OC3RS = ADC1BUF0(700/450);
         }
         
         else if (ADC1BUF0 > 600) {
             //TURN RIGHT
-            OC1RS = 0;
+            OC1RS = (1023 - ADC1BUF0)(700/423);
             OC3RS = 700;  
         }
         
