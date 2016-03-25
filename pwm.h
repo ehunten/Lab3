@@ -7,3 +7,6 @@
 
 void initPWM();
 void initHbridge();
+void forward();
+void backward();
+void stop();
