@@ -29,15 +29,20 @@ void initTimer1(){
     T1CONbits.ON = ENABLE;          // Turn the timer on
 }
 
-void initTimer2(){
-    IFS0bits.T2IF = CLEAR;          // Put the flag down
-    TMR2 = CLEAR;                   //Clear TMR2
-    PR2 = 1000;                        //Set PRvalue
-    T2CONbits.TCKPS = PRESC1;       //Set prescalar
-    T2CONbits.TCS = CLEAR;          //Set Oscillator
-  //  IEC0bits.T2IE = ENABLE;         //enable interrupt
-  //  IPC2bits.T2IP = DEFAULT;
-    T2CONbits.ON = ENABLE;          //turn timer on
+void initTimer3(){
+    IFS0bits.T3IF = 0;// Put the flag down
+    TMR3 = 0;// clear TMR1
+    PR3 = 39061;// Initialize PR1
+    T3CONbits.TCKPS = 3; // Initialize pre-scalar
+    T3CONbits.TCS = 0; // Setting the oscillator
+    IEC0bits.T3IE = 1;// Enable the interrupt
+    IPC3bits.IC3IP = 7;// Configure the Interrupt Priority
+    T3CONbits.ON = 1;// Turn the timer on
+}
+
+void stopTimer() {
+        T3CONbits.ON = 0;// Turn the timer off
+        IEC0bits.T3IE = 0;// disable the interrupt
 }
 
 

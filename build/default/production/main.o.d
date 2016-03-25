@@ -5,4 +5,5 @@ config.h  \
 interrupt.h  \
 lcd.h  \
  pwm.h  \
-timer.h 
+timer.h  \
+switch.h 
