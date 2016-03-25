@@ -66,7 +66,7 @@ int main(void)
             break;
         }
         
-        if (ADC1BUF0 < 600 && ADC1BUF0 > 450) {
+        if (ADC1BUF0 < 550 && ADC1BUF0 > 450) {
             //FORWARD
             OC1RS = 700;
             OC3RS = 700;
