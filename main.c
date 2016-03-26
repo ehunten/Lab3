@@ -25,6 +25,7 @@ typedef enum stateTypeEnum{
 volatile stateType state = s1;
 
 volatile float val = 0;
+volatile float Input = 0;
 
 
 int main(void)
@@ -68,20 +69,20 @@ int main(void)
         
         if (ADC1BUF0 < 550 && ADC1BUF0 > 450) {
             //FORWARD
-            OC1RS = 700;
-            OC3RS = 700;
+            OC1RS = 900;
+            OC3RS = 900;
         }
         
         else if (ADC1BUF0 < 450) {
             //TURN LEFT
-            OC1RS = 700;
-            OC3RS = ADC1BUF0(700/450);
-        }
+            OC1RS = 900;
+            OC3RS = ADC1BUF0*(900/450);
+        } 
         
         else if (ADC1BUF0 > 600) {
             //TURN RIGHT
-            OC1RS = (1023 - ADC1BUF0)(700/423);
-            OC3RS = 700;  
+            OC1RS = (1023 - ADC1BUF0)*(900/423);
+            OC3RS = 900;  
         }
         
         
